@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   fill_arr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 16:03:45 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/08 13:59:21 by lyov             ###   ########.fr       */
+/*   Created: 2026/03/08 13:30:55 by lyov              #+#    #+#             */
+/*   Updated: 2026/03/08 14:01:55 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#include "header.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
+char	*fill(char **argv)
+{
+	char	*arr;
+	char	*temp;
+	int		i;
 
-int		ft_atoi(const char *a);
-size_t	ft_strlen(const char *s);
-void	simple(int argc, char **argv, int **arr, int *size);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*fill(char **argv);
-char	*ft_strdup(char *s);
+	i = 1;
+	arr = ft_strdup("");
+	while (argv[i])
+	{
+		temp = arr;
+		arr = ft_strjoin(arr, argv[i]);
+		free (temp);
+		temp = arr;
+		if (argv[i + 1])
+		{
+			arr = ft_strjoin(arr, " ");
+			free (temp);
+			i++;
+		}
+	}
+	return (arr);
+}
 
-#endif
+// int	main(int argc, char **argv)
+// {
+// 	printf("%s\n", fill(argv));
+// }
