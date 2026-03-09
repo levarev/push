@@ -6,18 +6,11 @@
 /*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:58:13 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/04 18:32:48 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/09 16:04:59 by larevsha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct s_list
-{
-	int				num;
-	struct s_list	*next;
-} t_list;
+#include "header.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
@@ -30,6 +23,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 void	pa(t_list **a, t_list **b)
 {
 	t_list	*temp;
+
 	if (!a || !b || !*b)
 		return ;
 	temp = *b;

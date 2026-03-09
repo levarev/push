@@ -6,18 +6,11 @@
 /*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 16:33:09 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/04 18:21:20 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/09 16:04:51 by larevsha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct s_list
-{
-	int				num;
-	struct s_list	*next;
-} t_list;
+#include "header.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -75,7 +68,6 @@ void	rra(t_list **a)
 //	printf("minchev tpel\n");
 //	while(temp1 != NULL)
 //	{
-		
 //	}
 //	ra(head);
 //}
