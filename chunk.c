@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:18:05 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/15 19:33:24 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/16 02:41:13 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@ void	sortb(t_list **a, t_list **b)
 {
 	t_list	*temp;
 	int		max;
+	t_list	*index;
 	int		i;
 
 	while (*b)
 	{
 		i = 0;
+		index = *b;
 		max = (*b)->num;
 		temp = *b;
 		while (temp)
 		{
 			if (temp->num > max)
+			{
 				max = temp->num;
+				index = temp;
+			}
 			temp = temp->next;
 		}
 		temp = *b;
@@ -51,31 +56,29 @@ void	sortb(t_list **a, t_list **b)
 
 void	chunk(t_list **a, t_list **b, int size)
 {
-	t_list	**temp1;
-	t_list	*temp2;
+	t_list	*temp1;
 	int		*arr;
 	int		*copy;
 	int		i;
 	int		j;
 	int		temp;
-	int		index;
 	int		sqrt;
 	int		chunk_start;
 	int		chunk_end;
 
 	i = 0;
 	sqrt = 0;
-	temp1 = a;
-	temp2 = *a;
-	index = 0;
+	temp1 = *a;
 	arr = malloc(sizeof(int) * size);
 	copy = malloc(sizeof(int) * size);
+	if (!arr || !copy)
+		return ;
 	while (temp1)
 	{
-		arr[i] = (*temp1)->num;
-		copy[i] = (*temp1)->num;
+		arr[i] = temp1->num;
+		copy[i] = temp1->num;
 		i++;
-		temp = (*temp1)->next;
+		temp1 = temp1->next;
 	}
 	i = 0;
 	while (i < size - 1)
@@ -109,10 +112,11 @@ void	chunk(t_list **a, t_list **b, int size)
 		i++;
 	}
 	i = 0;
-	while (temp2)
+	temp1 = *a;
+	while (temp1)
 	{
-		temp2->num = arr[i];
-		temp2 = temp2->next;
+		temp1->num = arr[i];
+		temp1 = temp1->next;
 		i++;
 	}
 	free (arr);
@@ -129,10 +133,14 @@ void	chunk(t_list **a, t_list **b, int size)
 			if ((*a)->num >= chunk_start && (*a)->num <= chunk_end)
 			{
 				pb(b, a);
+				write(1, "pb\n", 3);
 				i--;
 			}
 			else
+			{
 				ra(a);
+				write(1, "ra\n", 3);
+			}
 		}
 		chunk_start = chunk_end + 1;
 		chunk_end = chunk_start + sqrt - 1;
