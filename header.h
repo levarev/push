@@ -6,7 +6,7 @@
 /*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 16:03:45 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/09 18:52:36 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/15 19:35:09 by larevsha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*fill(char **argv);
 char	*ft_strdup(char *s);
 t_list	*ft_lstnew(void *content);
+int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	pb(t_list **b, t_list **a);
+void	pa(t_list **a, t_list **b);
+void	rra(t_list **a);
 
 #endif
