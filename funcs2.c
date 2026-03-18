@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:30:21 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/15 18:48:26 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/19 01:27:41 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,24 @@ int	ft_lstsize(t_list *lst)
 		a = (*a).next;
 	}
 	return (i);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*a;
+
+	if (!lst)
+		return (NULL);
+	a = lst;
+	while (a->next)
+		a = a->next;
+	return (a);
+}
+
+void	swap(int *a, int *b)
+{
+	int	temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
