@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quicksort1.c                                       :+:      :+:    :+:   */
+/*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:38:20 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/19 02:10:59 by lyov             ###   ########.fr       */
+/*   Updated: 2026/03/19 12:30:13 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int	get_median(t_list **a, int size)
 	i = 0;
 	arr = malloc(sizeof(int) * size);
 	if (!arr)
-		return (0);
+		exit(1);
 	temp = *a;
-	while (temp)
+	while (i < size && temp)
 	{
 		arr[i] = temp->num;
 		i++;
@@ -74,17 +74,22 @@ void	sort_small(t_list **a, int size)
 {
 	if (size == 1)
 		return ;
-	if ((*a)->num > ((*a)->next)->num)
-		sa(a);
-	
-	if (size == 3)
-		if(((*a)->next)->num > (((*a)->next)->next)->num)
+	if (size == 2)
+	{
+		if ((*a)->num > (*a)->next->num)
+			sa(a);
+		return ;
+	}
+	while (!((*a)->num < (*a)->next->num && (*a)->next->num < (*a)->next->next->num))
+	{
+		if ((*a)->num > (*a)->next->num)
+			sa(a);
+		else if ((*a)->next->num > (*a)->next->next->num)
 			rra(a);
-	if ((*a)->num > ((*a)->next)->num)
-		sa(a);
+	}
 }
 
-void	quick(t_list **a, t_list **b, int size)
+void	a_exept_3(t_list **a, t_list **b, int size)
 {
 	int		i;
 	int		median;
@@ -116,8 +121,54 @@ void	quick(t_list **a, t_list **b, int size)
 	}
 	while(rotated--)
 		rra(a);
-	quick(a, b, size - pushed);
-	quick(b, a, pushed);
-	while (pushed--)
+	a_exept_3(a, b, size - pushed);
+}
+
+void	to_a(t_list **a, t_list **b, int size_b)
+{
+	int		max_index;
+	int		max_num;
+	int		i;
+	t_list	*temp;
+
+	while (*b)
+	{
+		temp = *b;
+		max_index = 0;
+		max_num = temp->num;
+		i = 0;
+		while(temp->next)
+		{
+			if (max_num < temp->next->num)
+			{
+				max_index = i + 1;
+
+				max_num = temp->next->num;
+			}
+			temp = temp->next;
+			i++;
+		}
+		if (max_index <= size_b / 2)
+			while (max_index--)
+				rb(b);
+		else
+		{
+			max_index = size_b - max_index;
+			while (max_index--)
+				rrb(b);
+		}
 		pa(a, b);
+		size_b--;
+	}
+}
+
+void	quick_sort(t_list **a, t_list **b, int size)
+{
+	if (size <= 3)
+	{
+		sort_small(a, size);
+		return ;
+	}
+	a_exept_3(a, b, size);
+	to_a(a, b, size - 3);
 }
