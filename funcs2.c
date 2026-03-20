@@ -6,11 +6,11 @@
 /*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:30:21 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/19 01:27:41 by lyov             ###   ########.fr       */
+/*   Updated: 2026/03/20 02:00:11 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

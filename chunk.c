@@ -6,11 +6,11 @@
 /*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:18:05 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/16 02:41:13 by lyov             ###   ########.fr       */
+/*   Updated: 2026/03/20 02:05:18 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 void	sortb(t_list **a, t_list **b)
 {
@@ -132,7 +132,7 @@ void	chunk(t_list **a, t_list **b, int size)
 		{
 			if ((*a)->num >= chunk_start && (*a)->num <= chunk_end)
 			{
-				pb(b, a);
+				pb(a, b);
 				write(1, "pb\n", 3);
 				i--;
 			}

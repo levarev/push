@@ -6,11 +6,11 @@
 /*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:38:20 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/19 12:30:13 by lyov             ###   ########.fr       */
+/*   Updated: 2026/03/20 02:06:17 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 int	partition(int *arr, int low, int high)
 {
@@ -109,7 +109,7 @@ void	a_exept_3(t_list **a, t_list **b, int size)
 	{
 		if ((*a)->num < median)
 		{
-			pb(b, a);
+			pb(a, b);
 			pushed++;
 		}
 		else

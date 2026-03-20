@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 16:33:09 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/09 16:04:51 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/20 02:04:45 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -39,6 +39,7 @@ void	rra(t_list **a)
 
 	if (!a || !*a || !(*a)->next)
 		return ;
+	write(1, "rra\n", 4);
 	prev = *a;
 	last = ft_lstlast(*a);
 	while ((prev->next)->next != NULL)

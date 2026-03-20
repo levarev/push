@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:58:13 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/09 16:04:59 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/20 02:04:27 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
@@ -26,6 +26,7 @@ void	pa(t_list **a, t_list **b)
 
 	if (!a || !b || !*b)
 		return ;
+	write(1, "pa\n", 3);
 	temp = *b;
 	*b = (*b)->next;
 	temp->next = NULL;

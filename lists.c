@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:29:44 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/09 18:52:44 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/20 02:00:25 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 t_list	*lists(int	*arr, int size)
 {

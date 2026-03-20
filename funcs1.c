@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   funcs1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 16:03:16 by lyov              #+#    #+#             */
-/*   Updated: 2026/03/09 18:52:07 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/20 02:00:08 by lyov             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "push_swap.h"
 
 // int	ft_atoi(const char *a)
 // {
