@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 16:33:09 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/20 17:50:04 by larevsha         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:50:35 by larevsha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*a;
+	t_list	*b;
 
 	if (!lst)
 		return (NULL);
-	a = lst;
-	while (a->next)
-		a = a->next;
-	return (a);
+	b = lst;
+	while (b->next)
+		b = b->next;
+	return (b);
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -32,22 +32,22 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-void	rra(t_list **a, t_oper *oper)
+void	rrb(t_list **b, t_oper *oper)
 {
 	t_list	*last;
 	t_list	*prev;
 
-	if (!a || !*a || !(*a)->next)
+	(oper->rrb)++;
+	if (!b || !*b || !(*b)->next)
 		return ;
-	(oper->rra)++;
-	write(1, "rra\n", 4);
-	prev = *a;
-	last = ft_lstlast(*a);
+	write(1, "rrb\n", 4);
+	prev = *b;
+	last = ft_lstlast(*b);
 	while ((prev->next)->next != NULL)
 		prev = prev->next;
 	prev->next = NULL;
-	last->next = *a;
-	*a = last;
+	last->next = *b;
+	*b = last;
 }
 
 //int	main(void)

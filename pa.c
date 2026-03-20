@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyov <lyov@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: larevsha <larevsha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:58:13 by larevsha          #+#    #+#             */
-/*   Updated: 2026/03/20 02:04:27 by lyov             ###   ########.fr       */
+/*   Updated: 2026/03/20 17:52:16 by larevsha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, t_oper *oper)
 {
 	t_list	*temp;
 
 	if (!a || !b || !*b)
 		return ;
+	(oper->pa)++;
 	write(1, "pa\n", 3);
 	temp = *b;
 	*b = (*b)->next;
